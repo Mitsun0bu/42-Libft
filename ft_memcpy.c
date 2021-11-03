@@ -6,11 +6,11 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:08:06 by llethuil          #+#    #+#             */
-/*   Updated: 2021/10/14 17:39:49 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:25:51 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -20,9 +20,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (i < n)
 	{
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i ++;
+		i++;
 	}
-	((unsigned char *)dst)[i] = '\0';
 	return (dst);
 }
 
@@ -33,23 +32,19 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 int main()
 {
-	int	src [] = {54, 85, 20, 63, 21};
-	int	dst [] = {0, 0, 0, 0, 0};
-	size_t	n = sizeof(int) * 5;
-	int		len;
+	char	src_1[] = "Start now";
+	char	src_2[] = "Start now";
+	size_t	n = sizeof(char) * 2;
 
-	printf("Initial dst values : ");
-	for(len = 0; len < 5; len++)
-		printf("%d ", dst[len]);
-	printf("\n");
+	// Native function
+	printf("Initial src_1 value : 	%s\n", src_1);
+	memcpy(src_1 + 7, src_1, n);
+	printf("Final src_1 value : 	%s\n\n", src_1);
 
-	// Copy the memory bloc src to dst
-	ft_memcpy(dst, src, n);
-
-	printf("Final dst values after ft_memcpy : ");
-	for(len = 0; len < 5; len++)
-		printf("%d ", dst[len]);
-	printf("\n");
+	// My function
+	printf("Initial src_2 value : 	%s\n", src_2);
+	ft_memcpy(src_2 + 7, src_2, n);
+	printf("Final src_2 value : 	%s\n", src_2);
     return (0);
 }
 

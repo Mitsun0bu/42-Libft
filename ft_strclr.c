@@ -6,9 +6,11 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:36:33 by llethuil          #+#    #+#             */
-/*   Updated: 2021/10/29 17:45:55 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:26:01 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_strclr(char *s)
 {

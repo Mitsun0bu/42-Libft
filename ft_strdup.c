@@ -6,11 +6,10 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:49:31 by llethuil          #+#    #+#             */
-/*   Updated: 2021/10/19 15:03:39 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:26:05 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(char *s1)

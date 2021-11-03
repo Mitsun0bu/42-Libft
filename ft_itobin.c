@@ -6,20 +6,20 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:37:44 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/02 18:08:53 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 09:26:27 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_itobin (unsigned int n)
+void	ft_itobin(unsigned int n)
 {
-    unsigned int	i;
+	unsigned int	i;
 
 	i = 1 << 31;
 	while (i > 0)
 	{
-        if (n & i)
+		if (n & i)
 			write (1, "1", 1);
 		else
 			write (1, "0", 1);

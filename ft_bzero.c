@@ -6,11 +6,10 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:03:56 by llethuil          #+#    #+#             */
-/*   Updated: 2021/10/14 11:03:15 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:25:31 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

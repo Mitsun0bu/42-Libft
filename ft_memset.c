@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:12:19 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/02 18:11:27 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/03 09:11:11 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int main()
 		printf("%d ", array[len]);
 	printf("\n");
 
-	// Set each byte to 3
-	ft_memset(array, 3, size);
+	// Set each byte to 1
+	ft_memset(array, 1, size);
 
 	printf("Array values after ft_memset (int representation) : ");
 	for(len = 0; len < 5; len++)
