@@ -3,89 +3,124 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llethuil <llethuil@stduent.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 16:24:29 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 19:18:29 by llethuil         ###   ########lyon.fr   */
+/*   Created: 2021/11/04 11:24:20 by llethuil          #+#    #+#             */
+/*   Updated: 2021/11/04 17:11:11 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> //DEBUG
 
-char	**ft_split(char const *s, char c);
-void	ft_malloc_in_splitted(char **splitted, char const *s, char c);
-void	ft_fill_in_splitted(char *splitted, char const *s, char c);
+int		ft_word_counter(char const *s, char c);
+void	ft_malloc_strs(char **tab_str, char const *s, char c);
+void	ft_fill_strs(char **tab_str, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**splitted;
-	int		len_splitted;
-	int		i;
+	char	**tab_str;
+	int		n_words;
 
-	i = 0;
-	len_splitted = 0;
-	while (s[i])
-	{
-		if (s[i] != c && s[i + 1] == c)
-			len_splitted ++;
-		if (s[i] == c && s[i + 1] == '\0')
-			len_splitted --;
-		i++;
-	}
-	splitted = malloc (sizeof(char) * (len_splitted + 2));
-	if (!splitted)
+	n_words = ft_word_counter(s, c);
+	tab_str = malloc (sizeof(char *) * (n_words + 1));
+	if (!tab_str)
 		return (NULL);
-	ft_malloc_in_splitted(splitted, s, c);
-	return (splitted);
+	ft_malloc_strs(tab_str, s, c);
+	ft_fill_strs(tab_str, s, c);
+	tab_str[n_words] = NULL;
+	return (tab_str);
 }
 
-void	ft_malloc_in_splitted(char **splitted, char const *s, char c)
+int	ft_word_counter(char const *s, char c)
 {
-	int	i;
-	int	word_i;
-	int	word_len;
+	int	i_s;
+	int	n_word;
 
-	i = 0;
-	word_i = 0;
-	while (s[i])
+	i_s = 0;
+	n_word = 0;
+	while (s[i_s])
 	{
-		if (s[i] == c)
-			i ++;
-		else if (s[i] != c)
-		{
-			printf("word_i = %d\n", word_i); // DEBUG
+		if (s[i_s] != c && s[i_s + 1] == c)
+			n_word ++;
+		if (s[i_s] != c && s[i_s + 1] == '\0')
+			n_word ++;
+		i_s ++;
+	}
+	return (n_word);
+}
 
-			word_len = 0;
-			while (s[i] != c && s[i + 1] != '\0')
-			{
-				i++;
-				word_len ++;
-			}
-			if (s[i] != c && s[i + 1] == '\0')
-				word_len ++;
-			printf("word_len = %d\n", word_len); // DEBUG
-			splitted[word_i] = malloc (sizeof(char) * (word_len + 1));
-			i ++;
-			word_i ++;
+void	ft_malloc_strs(char **tab_str, char const *s, char c)
+{
+	int	i_s;
+	int	str_len;
+	int	i_tab_str;
+
+	i_s = 0;
+	i_tab_str = 0;
+	while (s[i_s])
+	{
+		while (s[i_s] == c)
+			i_s ++;
+		str_len = 0;
+		while (s[i_s] != c && s[i_s + 1] != '\0')
+		{
+			i_s++;
+			str_len ++;
 		}
+		if (s[i_s] != c && s[i_s + 1] == '\0')
+			str_len ++;
+		i_s ++;
+		tab_str[i_tab_str] = malloc (sizeof(char) * (str_len + 1));
+		i_tab_str++;
 	}
 }
 
-// === BEGINNING OF MY TEST === //
+void	ft_fill_strs(char **tab_str, char const *s, char c)
+{
+	int	i_s;
+	int	i_tab_str;
+	int	i_str;
+
+	i_s = 0;
+	i_tab_str = 0;
+	while (i_tab_str < ft_word_counter(s, c))
+	{
+		while (s[i_s] == c)
+			i_s ++;
+		i_str = 0;
+		while (s[i_s] != c)
+		{
+			tab_str[i_tab_str][i_str] = s[i_s];
+			i_str ++;
+			i_s++;
+		}
+		if (s[i_s] == c)
+			tab_str[i_tab_str][i_str] = '\0';
+		i_s ++;
+		i_tab_str++;
+	}
+}
+
+/*
+// === BEGINNING OF MY TEST ===
 
 #include <stdio.h>
 
 int main()
 {
-	char const	s[50] = "__CC_LES_MECS_!!!";
+	char const	s[100] = "CC_LES_MECS_!______________";
 	char		c = '_';
+	char		**splitted;
+	int			i_1 = 0;
 
-	ft_split(s, c);
-
+	splitted = ft_split(s, c);
+	while (splitted[i_1])
+	{
+		printf("%s\n", splitted[i_1]);
+		i_1 ++;
+	}
 	return (0);
 }
 
 // === END OF MY TEST === //
-
-
+*/

@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 
 	substr = malloc(len * sizeof(char));
+	if (!substr)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
@@ -28,15 +30,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-/*
+
 // === BEGINNING OF MY TEST ===
 
 #include <stdio.h>
 
 int	main()
 {
-	char const		s[50] = "SALUT LES COPAINS";
-	unsigned int	start = 6;
+	char const		s[18] = "SALUT LES COPAINS";
+	unsigned int	start = 8;
 	size_t			len = 3;
 
 	printf("src : %s\n", s);
@@ -46,4 +48,4 @@ int	main()
 }
 
 // === END OF MY TEST ===
-*/
+
