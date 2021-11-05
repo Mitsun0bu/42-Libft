@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:33:55 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/02 17:21:45 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/05 10:30:48 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-
+/*
 // === BEGINNING OF MY TEST ===
 
 #include <stdio.h>
@@ -48,4 +48,4 @@ int	main()
 }
 
 // === END OF MY TEST ===
-
+*/

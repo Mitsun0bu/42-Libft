@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:08:22 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 09:25:54 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/05 10:31:08 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-
+/*
 // === BEGINNING OF MY TEST ===
 
 #include <stdio.h>
@@ -49,4 +49,4 @@ int main()
 }
 
 // === END OF MY TEST ===
-
+*/

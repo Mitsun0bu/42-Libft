@@ -6,15 +6,15 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:24:20 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/04 17:11:11 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/05 15:58:17 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_word_counter(char const *s, char c);
-void	ft_malloc_strs(char **tab_str, char const *s, char c);
-void	ft_fill_strs(char **tab_str, char const *s, char c);
+static int		ft_word_counter(char const *s, char c);
+static void		ft_malloc_strs(char **tab_str, char const *s, char c);
+static void		ft_fill_strs(char **tab_str, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -31,7 +31,7 @@ char	**ft_split(char const *s, char c)
 	return (tab_str);
 }
 
-int	ft_word_counter(char const *s, char c)
+static int	ft_word_counter(char const *s, char c)
 {
 	int	i_s;
 	int	n_word;
@@ -49,7 +49,7 @@ int	ft_word_counter(char const *s, char c)
 	return (n_word);
 }
 
-void	ft_malloc_strs(char **tab_str, char const *s, char c)
+static void	ft_malloc_strs(char **tab_str, char const *s, char c)
 {
 	int	i_s;
 	int	str_len;
@@ -75,7 +75,7 @@ void	ft_malloc_strs(char **tab_str, char const *s, char c)
 	}
 }
 
-void	ft_fill_strs(char **tab_str, char const *s, char c)
+static void	ft_fill_strs(int **tab_str, char const *s, char c)
 {
 	int	i_s;
 	int	i_tab_str;

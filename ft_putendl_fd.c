@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itobin.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 12:37:44 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 09:26:27 by llethuil         ###   ########lyon.fr   */
+/*   Created: 2021/11/04 19:41:23 by llethuil          #+#    #+#             */
+/*   Updated: 2021/11/04 19:43:15 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_itobin(unsigned int n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned int	i;
-
-	i = 1 << 31;
-	while (i > 0)
-	{
-		if (n & i)
-			write (1, "1", 1);
-		else
-			write (1, "0", 1);
-		i = i / 2;
-	}
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 
 /*
 // === BEGINNING OF MY TEST === //
 
 #include <stdio.h>
+#include <fcntl.h>
 
-int main(void)
+int	main()
 {
-    printf("Conversion of 7 with ft_itobin : ");
-	printf("\n");
-	ft_itobin(7);
-    printf("Conversion of 4 with ft_itobin");
-	printf("\n");
-	ft_itobin(4);
+	int		fd;
+	char	*s = "HELL0 W0RLD";
+
+	//Create and write on a test file
+	fd = open("test_ft_putendl_fd", O_WRONLY | O_CREAT);
+	if (fd == -1)
+	{
+		ft_putstr("open() failed\n");
+		return (1);
+	}
+	ft_putstr("fd = ");
+	ft_putnbr(fd);
+	// My function
+	ft_putendl_fd(s, fd);
+
+	// Close the test file
+	if (close(fd) == -1)
+		ft_putstr("close() failed \n");
 	return (0);
 }
 

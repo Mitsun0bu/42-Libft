@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	len_to_malloc(long int nbr_int, int sign);
+static int	len_to_malloc(long int nbr_int, int sign);
 
 char	*ft_itoa(int n)
 {
@@ -43,7 +43,7 @@ char	*ft_itoa(int n)
 	return (nbr_str);
 }
 
-int	len_to_malloc(long int nbr_int, int sign)
+static int	len_to_malloc(long int nbr_int, int sign)
 {
 	int	len_to_malloc;
 

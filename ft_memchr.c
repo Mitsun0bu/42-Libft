@@ -34,7 +34,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 int	main()
 {
 	int	s[] = {'H', 'E', 'L', 'L', 'O'};
-	int c = 'O';
+	int c = 'L';
 	size_t	n = sizeof(int) * 5;
 	int len = 0;
 
