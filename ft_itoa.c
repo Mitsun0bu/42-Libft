@@ -6,11 +6,12 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:48:23 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 09:29:24 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 14:52:47 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	len_to_malloc(long int nbr_int, int sign);
 
@@ -33,9 +34,9 @@ char	*ft_itoa(int n)
 		return (0);
 	i = len_to_malloc(nbr_int, sign);
 	nbr_str[i] = '\0';
-	while (i > 0)
+	while (--i >= 0)
 	{
-		nbr_str[--i] = (nbr_int % 10) + '0';
+		nbr_str[i] = (nbr_int % 10) + '0';
 		nbr_int = nbr_int / 10;
 	}
 	if (sign < 0)
@@ -49,6 +50,8 @@ static int	len_to_malloc(long int nbr_int, int sign)
 
 	len_to_malloc = 0;
 	if (sign < 0)
+		len_to_malloc++;
+	if (nbr_int == 0)
 		len_to_malloc++;
 	while (nbr_int > 0)
 	{
@@ -68,7 +71,7 @@ int main()
 {
 	int	n;
 
-	n = -42;
+	n = -623;
 	printf("n as an int : %d\n", n);
 	printf("n after itoa : %s\n", ft_itoa(n));
 	return (0);

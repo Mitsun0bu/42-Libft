@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:08:22 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/07 23:23:51 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/08 14:46:40 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len > 0)
 		{
-			((unsigned char *)dst)[len-1] = ((unsigned char *)src)[len-1];
+			((unsigned char *)dst)[len - 1] = ((unsigned char *)src)[len - 1];
 			len --;
 		}
 	}

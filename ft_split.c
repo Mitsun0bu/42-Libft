@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:24:20 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 09:11:57 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 12:03:00 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	**ft_split(char const *s, char c)
 	char	**tab_str;
 	int		n_words;
 
+	if (!s)
+		return (NULL);
 	n_words = ft_word_counter(s, c);
 	tab_str = malloc (sizeof(char *) * (n_words + 1));
 	if (!tab_str)

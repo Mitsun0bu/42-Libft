@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:34:36 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/02 14:05:06 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 16:29:25 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main()
 {
 	char	s1[50] = "SALUT LES COPAINS";
 	char	s2[50] = "SALUT LES COPINES";
-	size_t	n = 14;
+	size_t	n = 3;
 
 	printf("s1 : %s\n", s1);
 	printf("s2 : %s\n", s2);

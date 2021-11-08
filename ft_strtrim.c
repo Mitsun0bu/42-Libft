@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:35:38 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 13:05:48 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 14:51:32 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		trimmed = malloc (sizeof(char) * (end - start + 1));
 		if (trimmed == NULL)
 			return (NULL);
-		else if (trimmed)
-			ft_strlcpy(trimmed, &s1[start], end - start + 1);
+		ft_strlcpy(trimmed, &s1[start], end - start + 1);
 	}
 	return (trimmed);
 }
@@ -44,8 +43,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main()
 {
-	char	s1[50] = "*!*SAL*UT!**";
-	char	set[50] = "*!";
+	char	s1[50] = "*SALUT***";
+	char	set[50] = "*";
 
 	printf("s1 : %s\n", s1);
 	printf("set : %s\n", set);

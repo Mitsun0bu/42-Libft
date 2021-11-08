@@ -6,20 +6,20 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:20:07 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/06 11:40:08 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/08 09:35:53 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isupper(int	c)
+static int	ft_isupper(int c)
 {
 	if ('A' <= c && c <= 'Z')
 		return (1);
 	return (0);
 }
 
-static int	ft_islower(int	c)
+static int	ft_islower(int c)
 {
 	if ('a' <= c && c <= 'z')
 		return (1);

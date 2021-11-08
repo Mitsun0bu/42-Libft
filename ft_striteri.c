@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:56:11 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/04 17:19:03 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 10:35:03 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
 		f(i, &s[i]);
@@ -29,16 +31,14 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 #include <stdio.h>
 
-void	ft_iteration(unsigned int iterator, char *s)
+void	ft_iteration(unsigned int i, char* s)
 {
-    char iterated;
-
-    iterated = *s + ;
+    *s = *s + i ;
 }
 
 int	main()
 {
-	char *s = "HELLO WORLD";
+	char s[] = "HELLO WORLD";
 
 	ft_striteri(s, &ft_iteration);
 	printf("%s", s);

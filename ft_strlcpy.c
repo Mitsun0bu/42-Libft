@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:33:30 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 09:32:29 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 09:36:50 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
+
 	i = 0;
 	if (dstsize == 0)
 		return (ft_strlen(src));

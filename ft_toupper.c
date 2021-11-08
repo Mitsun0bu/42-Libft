@@ -6,13 +6,13 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:07:56 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/06 11:44:47 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 09:37:41 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_islower(int	c)
+static int	ft_islower(int c)
 {
 	if ('a' <= c && c <= 'z')
 		return (1);

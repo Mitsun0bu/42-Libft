@@ -6,13 +6,13 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 14:57:01 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/06 11:44:51 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 09:37:29 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isupper(int	c)
+static int	ft_isupper(int c)
 {
 	if ('A' <= c && c <= 'Z')
 		return (1);
@@ -41,9 +41,9 @@ int	main()
 	test_1 = 'B';
 	test_2 = '6';
 	printf("result tolower on 'B'		:	%d\n", tolower(test_1));
-	printf("result ft_tolower on 'B'	: 	%d\n", ft_tolower(test_1));
-	printf("result tolower on '6'		: 	%d\n", tolower(test_2));
-	printf("result ft_tolower on '6'	: 	%d\n", ft_tolower(test_2));
+	printf("result ft_tolower on 'B'	:	%d\n", ft_tolower(test_1));
+	printf("result tolower on '6'		:	%d\n", tolower(test_2));
+	printf("result ft_tolower on '6'	:	%d\n", ft_tolower(test_2));
 	return (0);
 }
 

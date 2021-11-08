@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:34:16 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/02 14:05:40 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 17:48:32 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i_haystack;
-	size_t	i_needle;
-	size_t	i_check;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	i_haystack = 0;
-	i_needle = 0;
-	if (needle[i_needle] == '\0')
+	i = 0;
+	j = 0;
+	if (needle[j] == '\0')
 		return ((char *)haystack);
-	while (haystack[i_haystack])
+	while (haystack[i] && i < len)
 	{
-		if (haystack[i_haystack] == needle[i_needle])
+		j = 0;
+		if (haystack[i] == needle[j])
 		{
-			i_check = i_haystack;
-			while (i_needle < len && haystack[i_check] == needle [i_needle])
+			k = i;
+			while ((haystack[k] == needle[j] && k < len) || needle[j] == '\0')
 			{
-				i_check ++;
-				i_needle ++;
+				if (needle[j] == '\0')
+					return ((char *)haystack + i);
+				k ++;
+				j ++;
 			}
-			if (needle[i_needle] == '\0' && len >= i_check)
-				return ((char *)haystack + i_haystack);
 		}
-		i_haystack ++;
+		i ++;
 	}
 	return (NULL);
 }
@@ -47,16 +48,16 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 int	main()
 {
-	char	haystack[50] = "WESH LA STREET";
-	char	needle[50] = "LA";
-	size_t	len = 6;
+	char	haystack[] = "SALUTMEC";
+	char	needle[] = "LUT";
+	size_t	len = 9;
 
 	printf("haystack: %s\n", haystack);
-	printf("needle : %s\n", needle);
+	printf("needle: %s\n", needle);
 	//	Native function
-	printf("Result of strnstr : 	%s\n", strnstr(haystack, needle, len));
+	printf("Result of strnstr : %s\n", strnstr(haystack, needle, len));
 	//	My function
-	printf("Result of ft_strnstr : 	%s\n", ft_strnstr(haystack, needle, len));
+	printf("Result of ft_strnstr : %s\n", ft_strnstr(haystack, needle, len));
 	return (0);
 }
 

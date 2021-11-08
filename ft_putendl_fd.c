@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 19:41:23 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/04 19:43:15 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 12:30:39 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }
@@ -33,17 +35,17 @@ int	main()
 	fd = open("test_ft_putendl_fd", O_WRONLY | O_CREAT);
 	if (fd == -1)
 	{
-		ft_putstr("open() failed\n");
+		printf("open() failed\n");
 		return (1);
 	}
-	ft_putstr("fd = ");
-	ft_putnbr(fd);
+	printf("fd = ");
+	printf("%d\n", fd);
 	// My function
 	ft_putendl_fd(s, fd);
 
 	// Close the test file
 	if (close(fd) == -1)
-		ft_putstr("close() failed \n");
+		printf("close() failed \n");
 	return (0);
 }
 

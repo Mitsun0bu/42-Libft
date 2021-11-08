@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:46:00 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 09:26:03 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 12:04:45 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i_2;
 	int		j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	joined = malloc(sizeof(char) * len + 1);
 	if (joined == NULL)
