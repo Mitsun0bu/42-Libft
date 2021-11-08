@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:24:20 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/05 15:58:17 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 09:11:57 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	ft_malloc_strs(char **tab_str, char const *s, char c)
 	}
 }
 
-static void	ft_fill_strs(int **tab_str, char const *s, char c)
+static void	ft_fill_strs(char **tab_str, char const *s, char c)
 {
 	int	i_s;
 	int	i_tab_str;
@@ -108,7 +108,7 @@ static void	ft_fill_strs(int **tab_str, char const *s, char c)
 
 int main()
 {
-	char const	s[100] = "CC_LES_MECS_!______________";
+	char const	s[] = "CC_LES_MECS_!______________";
 	char		c = '_';
 	char		**splitted;
 	int			i_1 = 0;

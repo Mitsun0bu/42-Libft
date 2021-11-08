@@ -6,70 +6,35 @@
 #    By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 14:36:18 by llethuil          #+#    #+#              #
-#    Updated: 2021/11/05 14:47:06 by llethuil         ###   ########lyon.fr    #
+#    Updated: 2021/11/06 11:18:02 by llethuil         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
 
-INCS = ./includes/ft.h
+INCS = libft.h
 
-SRCS = \
-./srcs/ft_atoi.c \
-./srcs/ft_bzero.c \
-./ft_calloc \
-./ft_isalnum \
-./ft_isalpha \
-./ft_isascii \
-./ft_isdigit \
-./ft_isprint \
-./*ft_itoa \
-./*ft_memchr \
-./ft_memcmp \
-./ft_memcpy \
-./ft_memmove \
-./ft_memset \
-./ft_putchar_fd \
-./ft_putendl_fd \
-./ft_putnbr_fd \
-./ft_putstr_fd \
-./ft_split \
-./ft_strchr \
-./ft_strdup \
-./ft_striteri \
-./ft_strjoin \
-./ft_strlcat \
-./ft_strlcpy \
-./ft_strlen \
-./ft_strmapi \
-./ft_strncmp \
-./ft_strnstr \
-./ft_strrchr \
-./ft_strtrim \
-./ft_substr \
-./ft_tolower \
-./ft_toupper
-
-FLAGS = -Wall -Wextra -Werror -I ${INCS}
+SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
 OBJS = ${SRCS:.c=.o}
 
 CC = gcc
 
-all: ${NAME}
+RM = rm -f
 
-${OBJS}: ${SRCS}
-	${CC} ${FLAGS} -c $< -o $@
+CFLAGS = -Wall -Wextra -Werror -I ${INCS}
+
+all: ${NAME}
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
 
 clean:
-	rm -f ${OBJS}
+	${RM} ${OBJS}
 
 fclean: clean
-	rm -f ${NAME}
+	${RM} ${NAME}
 
 re : fclean all
 

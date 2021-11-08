@@ -6,11 +6,25 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:20:07 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/02 17:19:55 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/06 11:40:08 by llethuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isupper(int	c)
+{
+	if ('A' <= c && c <= 'Z')
+		return (1);
+	return (0);
+}
+
+static int	ft_islower(int	c)
+{
+	if ('a' <= c && c <= 'z')
+		return (1);
+	return (0);
+}
 
 int	ft_isalpha(int c)
 {
@@ -33,12 +47,10 @@ int	main()
 
 	test_1 = 'b';
 	test_2 = '6';
-	printf("test_1 with 'b' (result expected 1) :	%d\n", test_1);
-	printf("test_2 with '6' (result expected 0) :	%d\n", test_2);
-	printf("result_1 isalpha		:	%d\n", isalpha(test_1));
-	printf("result_1 ft_isalpha		:	%d\n", ft_isalpha(test_1));
-	printf("result_2 isalpha		:	%d\n", isalpha(test_2));
-	printf("result_2 ft_isalpha		:	%d\n", ft_isalpha(test_2));
+	printf("result_1 isalpha with b		:	%d\n", isalpha(test_1));
+	printf("result_1 ft_isalpha with b	:	%d\n", ft_isalpha(test_1));
+	printf("result_2 isalpha with 6		:	%d\n", isalpha(test_2));
+	printf("result_2 ft_isalpha with 6	:	%d\n", ft_isalpha(test_2));
 	return (0);
 }
 

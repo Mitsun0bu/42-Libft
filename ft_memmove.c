@@ -6,21 +6,35 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:08:22 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/05 10:31:08 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 23:23:51 by llethuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	i = 0;
-	while (i < len)
+	if (src >= dst)
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i ++;
+		while (i < len)
+		{
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i ++;
+		}
+	}
+	else if (src < dst)
+	{
+		while (len > 0)
+		{
+			((unsigned char *)dst)[len-1] = ((unsigned char *)src)[len-1];
+			len --;
+		}
 	}
 	return (dst);
 }
@@ -32,19 +46,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 int main()
 {
-	char	src_1[] = "Salut_je_suis_une_fonction_bizarre";
-	char	src_2[] = "Salut_je_suis_une_fonction_bizarre";
-	size_t	n = sizeof(char) * 6;
+	char	src_1[] = "Salutmemmove";
+	char	src_2[] = "Salutmemmove";
+	size_t	len = sizeof(char) * 6;
 
 	// Native function
-	printf("Initial src_1 value : %s\n", src_1);
-	memmove(src_1 + 9, src_1 + 14, n);
-	printf("Final src_1 value : %s\n\n", src_1);
+	printf("Initial src_1 value :	%s\n", src_1);
+	memmove(src_1 + 5, src_1 + 2, len);
+	printf("Final src_1 value :	%s\n\n", src_1);
 
 	// My function
-	printf("Initial src_2 value : %s\n", src_2);
-	ft_memmove(src_2 + 9, src_2 + 14, n);
-	printf("Final src_2 value : %s\n", src_2);
+	printf("Initial src_2 value :	%s\n", src_2);
+	ft_memmove(src_2 + 5, src_2 + 2, len);
+	printf("Final src_2 value :	%s\n", src_2);
     return (0);
 }
 
