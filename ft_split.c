@@ -6,11 +6,12 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:24:20 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 12:03:00 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/09 18:30:06 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int		ft_word_counter(char const *s, char c);
 static void		ft_malloc_strs(char **tab_str, char const *s, char c);
@@ -24,12 +25,12 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	n_words = ft_word_counter(s, c);
-	tab_str = malloc (sizeof(char *) * (n_words + 1));
+	tab_str = malloc(sizeof(char *) * (n_words + 1));
 	if (!tab_str)
 		return (NULL);
 	ft_malloc_strs(tab_str, s, c);
+	tab_str[n_words] = 0;
 	ft_fill_strs(tab_str, s, c);
-	tab_str[n_words] = NULL;
 	return (tab_str);
 }
 
@@ -73,6 +74,11 @@ static void	ft_malloc_strs(char **tab_str, char const *s, char c)
 			str_len ++;
 		i_s ++;
 		tab_str[i_tab_str] = malloc (sizeof(char) * (str_len + 1));
+		//if (!tab_str[i_tab_str])
+		//{
+		//	return ;
+		//}
+
 		i_tab_str++;
 	}
 }
@@ -90,14 +96,13 @@ static void	ft_fill_strs(char **tab_str, char const *s, char c)
 		while (s[i_s] == c)
 			i_s ++;
 		i_str = 0;
-		while (s[i_s] != c)
+		while (s[i_s] != c && s[i_s] != '\0')
 		{
 			tab_str[i_tab_str][i_str] = s[i_s];
 			i_str ++;
 			i_s++;
 		}
-		if (s[i_s] == c)
-			tab_str[i_tab_str][i_str] = '\0';
+		tab_str[i_tab_str][i_str] = '\0';
 		i_s ++;
 		i_tab_str++;
 	}
@@ -110,7 +115,7 @@ static void	ft_fill_strs(char **tab_str, char const *s, char c)
 
 int main()
 {
-	char const	s[] = "CC_LES_MECS_!______________";
+	char const	s[] = "CC_LES_MECS_!";
 	char		c = '_';
 	char		**splitted;
 	int			i_1 = 0;
@@ -121,6 +126,9 @@ int main()
 		printf("%s\n", splitted[i_1]);
 		i_1 ++;
 	}
+	for (int i = 0 ; i < 4 ; i++)
+		free(splitted[i]);
+	free(splitted);
 	return (0);
 }
 
