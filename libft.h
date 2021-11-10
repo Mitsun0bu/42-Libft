@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:21:56 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/06 09:55:47 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:28:13 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <string.h>
 # include <stdlib.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-	void	*content;
-	struct	s_list *next;
-} t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

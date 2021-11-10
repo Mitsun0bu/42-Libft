@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 15:53:18 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/10 16:25:46 by llethuil         ###   ########lyon.fr   */
+/*   Created: 2021/11/10 16:40:45 by llethuil          #+#    #+#             */
+/*   Updated: 2021/11/10 16:41:29 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*last_node;
-
-	if (!*lst)
-		*lst = new;
-	else
-	{
-		last_node = ft_lstlast(*lst);
-		last_node->next = new;
-	}
+	if (!lst)
+		return ;
+	(*del)(lst->content);
+	free (lst);
 }
 
 /*

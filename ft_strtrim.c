@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 11:35:38 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 14:51:32 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/10 16:27:00 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main()
 {
-	char	s1[50] = "*SALUT***";
+	char	s1[50] = "****";
 	char	set[50] = "*";
 
 	printf("s1 : %s\n", s1);

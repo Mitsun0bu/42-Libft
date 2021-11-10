@@ -1,110 +1,126 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 11:24:20 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/09 18:30:06 by llethuil         ###   ########lyon.fr   */
+/*   Created: 2021/11/10 11:25:47 by llethuil          #+#    #+#             */
+/*   Updated: 2021/11/10 16:34:41 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static int		ft_word_counter(char const *s, char c);
-static void		ft_malloc_strs(char **tab_str, char const *s, char c);
-static void		ft_fill_strs(char **tab_str, char const *s, char c);
+static int		ft_count_words(char const *s, char c);
+static void		ft_free(char **tab);
+static int		ft_calloc_strs(char const *s, char c, char **tab);
+static void		ft_fill_tab(char const *s, char c, char **tab);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**tab_str;
-	int		n_words;
+	int		words;
+	char	**tab;
 
 	if (!s)
 		return (NULL);
-	n_words = ft_word_counter(s, c);
-	tab_str = malloc(sizeof(char *) * (n_words + 1));
-	if (!tab_str)
+	words = ft_count_words(s, c);
+	tab = ft_calloc(words + 1, sizeof(char *));
+	if (!tab)
+	{
+		free(tab);
 		return (NULL);
-	ft_malloc_strs(tab_str, s, c);
-	tab_str[n_words] = 0;
-	ft_fill_strs(tab_str, s, c);
-	return (tab_str);
-}
-
-static int	ft_word_counter(char const *s, char c)
-{
-	int	i_s;
-	int	n_word;
-
-	i_s = 0;
-	n_word = 0;
-	while (s[i_s])
-	{
-		if (s[i_s] != c && s[i_s + 1] == c)
-			n_word ++;
-		if (s[i_s] != c && s[i_s + 1] == '\0')
-			n_word ++;
-		i_s ++;
 	}
-	return (n_word);
-}
-
-static void	ft_malloc_strs(char **tab_str, char const *s, char c)
-{
-	int	i_s;
-	int	str_len;
-	int	i_tab_str;
-
-	i_s = 0;
-	i_tab_str = 0;
-	while (s[i_s])
+	tab[words] = NULL;
+	if (!ft_calloc_strs(s, c, tab))
 	{
-		while (s[i_s] == c)
-			i_s ++;
-		str_len = 0;
-		while (s[i_s] != c && s[i_s + 1] != '\0')
-		{
-			i_s++;
-			str_len ++;
-		}
-		if (s[i_s] != c && s[i_s + 1] == '\0')
-			str_len ++;
-		i_s ++;
-		tab_str[i_tab_str] = malloc (sizeof(char) * (str_len + 1));
-		//if (!tab_str[i_tab_str])
-		//{
-		//	return ;
-		//}
-
-		i_tab_str++;
+		ft_free(tab);
+		return (NULL);
 	}
+	ft_fill_tab(s, c, tab);
+	return (tab);
 }
 
-static void	ft_fill_strs(char **tab_str, char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
-	int	i_s;
-	int	i_tab_str;
-	int	i_str;
+	int	i;
+	int	word;
 
-	i_s = 0;
-	i_tab_str = 0;
-	while (i_tab_str < ft_word_counter(s, c))
+	i = 0;
+	word = 0;
+	while (s[i])
 	{
-		while (s[i_s] == c)
-			i_s ++;
-		i_str = 0;
-		while (s[i_s] != c && s[i_s] != '\0')
+		if (s[i] != c && s[i + 1] == c)
+			word ++;
+		if (s[i] != c && s[i + 1] == '\0')
+			word ++;
+		i ++;
+	}
+	return (word);
+}
+
+static void	ft_free(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+static int	ft_calloc_strs(char const *s, char c, char **tab)
+{
+	int	i;
+	int	i_tab;
+	int	j_tab;
+
+	i = 0;
+	i_tab = 0;
+	while (s[i] && i_tab < ft_count_words(s, c))
+	{
+		while (s[i] == c)
+			i ++;
+		j_tab = 0;
+		while (s[i] != c && s[i + 1] != '\0')
 		{
-			tab_str[i_tab_str][i_str] = s[i_s];
-			i_str ++;
-			i_s++;
+			j_tab ++;
+			i ++;
 		}
-		tab_str[i_tab_str][i_str] = '\0';
-		i_s ++;
-		i_tab_str++;
+		if (s[i] != c && s[i + 1] == '\0')
+			j_tab ++;
+		tab[i_tab] = ft_calloc(j_tab + 1, sizeof(char));
+		if (!tab[i_tab])
+			return (0);
+		i_tab ++;
+		i ++;
+	}
+	return (1);
+}
+
+static void	ft_fill_tab(char const *s, char c, char **tab)
+{
+	int	i;
+	int	i_tab;
+	int	j_tab;
+
+	i = 0;
+	i_tab = 0;
+	while (s[i] && i_tab < ft_count_words(s, c))
+	{
+		j_tab = 0;
+		while (s[i] == c)
+			i ++;
+		while (s[i] != c && s[i + 1] != '\0')
+			tab[i_tab][j_tab++] = s[i++];
+		if (s[i] != c && s[i + 1] == '\0')
+			tab[i_tab][j_tab++] = s[i];
+		tab[i_tab][j_tab] = '\0';
+		i_tab ++;
+		i ++;
 	}
 }
 
@@ -115,8 +131,8 @@ static void	ft_fill_strs(char **tab_str, char const *s, char c)
 
 int main()
 {
-	char const	s[] = "CC_LES_MECS_!";
-	char		c = '_';
+	char const	s[] = "**CC*LES*MECS**!**";
+	char		c = '*';
 	char		**splitted;
 	int			i_1 = 0;
 
@@ -126,9 +142,7 @@ int main()
 		printf("%s\n", splitted[i_1]);
 		i_1 ++;
 	}
-	for (int i = 0 ; i < 4 ; i++)
-		free(splitted[i]);
-	free(splitted);
+	ft_free(splitted);
 	return (0);
 }
 
