@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 19:21:17 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/10 16:25:31 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/11 17:08:05 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,23 @@ t_list	*ft_lstnew(void *content)
 
 #include <stdio.h>
 
-int main()
+int	main()
 {
+	t_list	*list;
+	char	*s;
+	int		i;
 
+	printf("\n=== TEST ft_lstnew WITH STRING ===\n\n");
+	s = "test";
+	list = ft_lstnew(s);
+	printf("CONTENT OF MY LIST : %s, NEXT : %p\n", (char *)list->content, list->next);
+	free(list);
+
+	printf("\n=== TEST ft_lstnew WITH INT ===\n\n");
+	i = 42;
+	list = ft_lstnew(&i);
+	printf("CONTENT OF MY LIST : %d, NEXT : %p\n", *(int *)list->content, list->next);
+	free(list);
 }
 
 // === END OF MY TEST ===

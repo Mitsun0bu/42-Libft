@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:02:54 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/10 16:25:14 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/11 17:08:08 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ int	ft_lstsize(t_list *lst)
 
 #include <stdio.h>
 
-int main()
+int	main()
 {
-	t_list lst_1;
+	t_list	*list;
+	int		i = 0;
 
+	list = NULL;
+	while (i < 10)
+	{
+		ft_lstadd_front(&list, ft_lstnew(&i));
+		i ++;
+	}
+	printf("size of list = %d\n", ft_lstsize(list));
 }
 
 // === END OF MY TEST ===
