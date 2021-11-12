@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:47 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/11 17:59:37 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 15:52:30 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char	**ft_split(char const *s, char c)
 		free(tab);
 		return (NULL);
 	}
-	tab[words] = NULL;
 	if (!ft_calloc_strs(s, c, tab))
 	{
 		ft_free(tab);

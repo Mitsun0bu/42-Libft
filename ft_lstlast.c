@@ -6,12 +6,11 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:11:56 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/11 18:10:25 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 09:41:33 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> // TEST
 
 t_list	*ft_lstlast(t_list *lst)
 {

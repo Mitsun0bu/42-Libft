@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 16:40:45 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/12 11:36:46 by llethuil         ###   ########lyon.fr   */
+/*   Created: 2021/11/12 10:04:04 by llethuil          #+#    #+#             */
+/*   Updated: 2021/11/12 16:01:02 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*new;
+	t_list	*node;
+
+	new = NULL;
 	if (!lst)
-		return ;
-	(*del)(lst->content);
-	free (lst);
+		return (NULL);
+	while (lst)
+	{
+		node = ft_lstnew((f)(lst->content));
+		if (!node)
+		{
+			ft_lstclear(&new, (del));
+			return (NULL);
+		}
+		ft_lstadd_back(&new, node);
+		lst = lst->next;
+	}
+	return (new);
 }
 
 /*
@@ -29,6 +43,5 @@ int main()
 {
 
 }
-
 // === END OF MY TEST ===
 */

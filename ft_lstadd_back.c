@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:53:18 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/11 18:35:54 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 15:58:40 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last_node->next = new;
 	}
 }
-
 
 /*
 // === BEGINNING OF MY TEST ===

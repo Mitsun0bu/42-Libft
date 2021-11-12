@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 15:05:33 by llethuil          #+#    #+#             */
-/*   Updated: 2021/10/19 15:23:32 by llethuil         ###   ########.fr       */
+/*   Updated: 2021/11/12 15:33:21 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	dst_init;
-	unsigned int	src_init;
-	unsigned int	i;
-	unsigned int	j;
+	size_t	dst_init;
+	size_t	src_init;
+	size_t	i;
+	size_t	j;
 
 	dst_init = ft_strlen(dst);
 	src_init = ft_strlen(src);

@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:03:56 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/03 09:25:31 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 12:29:10 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main()
 	for(len = 0; len < 5; len++)
 		printf("%d ", array[len]);
 	printf( "\n" );
-	
+
 	return (0);
 }
 

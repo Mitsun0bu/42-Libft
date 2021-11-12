@@ -6,11 +6,22 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:20:07 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 09:35:53 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 16:38:56 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isupper(int c);
+static int	ft_islower(int c);
+
+int	ft_isalpha(int c)
+{
+	if (ft_isupper(c) == 1 || ft_islower(c) == 1)
+		return (1);
+	else
+		return (0);
+}
 
 static int	ft_isupper(int c)
 {
@@ -25,15 +36,6 @@ static int	ft_islower(int c)
 		return (1);
 	return (0);
 }
-
-int	ft_isalpha(int c)
-{
-	if (ft_isupper(c) == 1 || ft_islower(c) == 1)
-		return (1);
-	else
-		return (0);
-}
-
 /*
 // === BEGINNING OF MY TEST === //
 

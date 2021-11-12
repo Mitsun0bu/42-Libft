@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:05:03 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 17:34:12 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 16:28:22 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ static int	ft_isspace(int c)
 
 static int	ft_checkoverflow(long int nbr, long int sign)
 {
-	if (nbr * sign < -2147483649)
-		return (-1);
-	else if (nbr * sign > 2147483648)
+	if (nbr > 2147483648 || nbr < -2147483649)
+	{
+		if (sign == 1)
+			return (-1);
 		return (0);
-	else
-		return ((int)nbr * sign);
+	}
+	return ((int)nbr * sign);
 }
 
 int	ft_atoi(const char *str)
@@ -67,7 +68,7 @@ int main()
 {
 	char	*number;
 
-	number = "-99999999999999999999999999";
+	number = "2147483650";
 	printf("number as a string :	%s\n", number);
 	printf("number after atoi :	%d\n", atoi(number));
 	printf("number after ft_atoi :	%d\n", ft_atoi(number));

@@ -6,7 +6,7 @@
 /*   By: llethuil <llethuil@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:34:16 by llethuil          #+#    #+#             */
-/*   Updated: 2021/11/08 17:48:32 by llethuil         ###   ########lyon.fr   */
+/*   Updated: 2021/11/12 09:52:16 by llethuil         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 int	main()
 {
-	char	haystack[] = "SALUTMEC";
-	char	needle[] = "LUT";
-	size_t	len = 9;
+	char	haystack[] = "SALUT";
+	char	needle[] = "LUS";
+	size_t	len = 4;
 
 	printf("haystack: %s\n", haystack);
 	printf("needle: %s\n", needle);
